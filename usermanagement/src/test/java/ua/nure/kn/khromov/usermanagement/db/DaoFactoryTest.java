@@ -1,8 +1,6 @@
-package test.java.ua.nure.kn.khromov.db;
+package ua.nure.kn.khromov.usermanagement.db;
 
 import junit.framework.TestCase;
-import main.java.ua.nure.kn.khromov.db.DaoFactory;
-import main.java.ua.nure.kn.khromov.db.UserDao;
 
 public class DaoFactoryTest extends TestCase {
 

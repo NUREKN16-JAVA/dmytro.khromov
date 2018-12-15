@@ -27,7 +27,7 @@
                 <pathelement location="${build-dir}"/>
             </classpath>
             <formatter type="plain"/>
-            <test name="test.java.ua.nure.kn.khromov.UserTest"/>
+            <test name="ua.nure.kn.khromov.usermanagement.UserTest"/>
         </junit>
     </target>
 </project>

@@ -1,12 +1,12 @@
-package main.java.ua.nure.kn.khromov.db;
+package ua.nure.kn.khromov.usermanagement.db;
 
-import main.java.ua.nure.kn.khromov.User;
+import ua.nure.kn.dziuba.usermanagement.User;
 
 import java.sql.*;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class HsqldbUserDao implements UserDao {
+class HsqldbUserDao implements UserDao {
 
     private ConnectionFactory connectionFactory;
 
@@ -159,8 +159,8 @@ public class HsqldbUserDao implements UserDao {
      * {@inheritDoc}
      * */
     @Override
-    public Collection<User> findAll() throws DatabaseException {
-        Collection<User> result = new LinkedList<User>();
+    public Collection findAll() throws DatabaseException {
+        Collection result = new LinkedList();
 
         try {
             Connection connection = connectionFactory.createConnection();

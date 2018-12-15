@@ -1,4 +1,4 @@
-package main.java.ua.nure.kn.khromov;
+package ua.nure.kn.khromov.usermanagement;
 
 import java.io.Serializable;
 import java.util.Calendar;
@@ -14,11 +14,18 @@ public class User implements Serializable {
 
     public User(){}
 
-    public User(Long id, String firstName, String lastName, Date dateOfBirth) {
+    public User(String firstName, String lastName, Date dateOfBirth) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public User(Long id, String firstName, String lastName, Date dateOfBirth){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
+
     }
 
     public Long getId() {
@@ -56,7 +63,7 @@ public class User implements Serializable {
     /**
      * Returns User's full name.
      * Format: "lastName, firstName"
-     * For example: "Khromov, Dmitriy"
+     * For example: "khromov, Dmitriy"
      *
      * @return String concatenation of last and first names.
      */
@@ -89,5 +96,26 @@ public class User implements Serializable {
         }
 
         return currentAge;
+    }
+
+    public boolean equals(Object object){
+        if(object == null){
+            return false;
+        }
+        if(this == object){
+            return true;
+        }
+        if(this.getId() == null && ((User)object).getId() == null){
+            return true;
+        }
+
+        return this.getId().equals(((User)object).getId());
+    }
+
+    public int hashCode(){
+        if(this.getId() == null){
+            return 0;
+        }
+        return this.getId().hashCode();
     }
 }

@@ -1,6 +1,6 @@
-package main.java.ua.nure.kn.khromov.db;
+package ua.nure.kn.khromov.usermanagement.db;
 
-import main.java.ua.nure.kn.khromov.User;
+import ua.nure.kn.khromov.usermanagement.User;
 
 import java.util.Collection;
 
@@ -49,8 +49,7 @@ public interface UserDao {
      * @throws DatabaseException
      * @throws java.sql.SQLException
      * */
-    @SuppressWarnings("rawtypes")
-	Collection findAll() throws DatabaseException;
+    Collection findAll() throws DatabaseException;
 
     /**
      * Sets connection to database.

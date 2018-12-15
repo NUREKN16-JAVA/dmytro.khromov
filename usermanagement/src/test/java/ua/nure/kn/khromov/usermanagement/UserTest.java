@@ -1,7 +1,6 @@
-package test.java.ua.nure.kn.khromov;
+package ua.nure.kn.khromov.usermanagement;
 
 import junit.framework.TestCase;
-import main.java.ua.nure.kn.khromov.User;
 
 import java.text.ParseException;
 import java.util.Calendar;
@@ -14,7 +13,7 @@ public class UserTest extends TestCase {
     private final String FIRST_NAME_ETALONE = "Dmitriy";
     private final String LAST_NAME_ETALONE = "Khromov";
 
-    private static final int YEAR_OF_BIRTH = 1998;
+    private static final int YEAR_OF_BIRTH = 1999;
 
     //Birthday has been passed in this year, month = month_of_birth
     private static final int ETALONE_AGE_1 = 19;

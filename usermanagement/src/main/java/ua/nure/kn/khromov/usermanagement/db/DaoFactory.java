@@ -1,31 +1,43 @@
-package main.java.ua.nure.kn.khromov.db;
+package ua.nure.kn.khromov.usermanagement.db;
 
 import java.io.IOException;
 import java.util.Properties;
 
 import static junit.framework.Assert.fail;
 
-public class DaoFactory {
-    private final Properties properties = new Properties();
-    private final static DaoFactory INSTANCE = new DaoFactory();
+public abstract class DaoFactory {
+    protected static Properties properties;
+    private static final String DAO_FACTORY = "dao.factory";
+    private static DaoFactory instance;
 
-    private final static String USER_DAO = "dao.ua.nure.kn.khromov.db.UserDao";
+    protected final static String USER_DAO = "dao.ua.nure.kn.khromov.usermanagement.db.UserDao";
     private final static String USER = "connection.user";
     private final static String PASSWORD = "connection.password";
     private final static String URL = "connection.url";
     private final static String DRIVER = "connection.driver";
 
-    public static DaoFactory getInstance() {
-        return INSTANCE;
-    }
-
-    @SuppressWarnings("deprecation")
-	public DaoFactory() {
+    static {
+        properties = new Properties();
         try {
-            this.properties.load(getClass().getClassLoader().getResourceAsStream("settings.properties"));
+            properties.load(DaoFactory.class.getClassLoader().getResourceAsStream("settings.properties"));
         } catch (IOException e) {
             fail(e.getMessage());
         }
+    }
+
+    public static synchronized DaoFactory getInstance() {
+        if(instance==null){
+            try{
+                Class factoryClass = Class.forName(properties.getProperty(DAO_FACTORY));
+                instance = (DaoFactory)factoryClass.newInstance();
+            }catch (Exception e){
+                throw new RuntimeException(e);
+            }
+        }
+        return instance;
+    }
+
+    protected DaoFactory() {
     }
 
     /**
@@ -33,7 +45,7 @@ public class DaoFactory {
      *
      * @return connection to database.
      * */
-    private ConnectionFactory getConnectionFactory() {
+    protected ConnectionFactory getConnectionFactory() {
         String user = properties.getProperty(USER);
         String password = properties.getProperty(PASSWORD);
         String url = properties.getProperty(URL);
@@ -50,22 +62,10 @@ public class DaoFactory {
      * @throws IllegalAccessException if user doesn't have access to it.
      * @throws InstantiationException if specified class is an interface or is an abstract class.
      * */
-    @SuppressWarnings("deprecation")
-	public UserDao getUserDao() {
-        UserDao result = null;
+    public abstract UserDao getUserDao();
 
-        try {
-            Class userDaoClass = Class.forName(properties.getProperty(USER_DAO));
-            result = (UserDao) userDaoClass.newInstance();
-            result.setConnectionFactory(getConnectionFactory());
-        } catch (ClassNotFoundException e) {
-            fail(e.getMessage());
-        } catch (IllegalAccessException e) {
-            fail(e.getMessage());
-        } catch (InstantiationException e) {
-            fail(e.getMessage());
-        }
-
-        return result;
+    public static void init(Properties prop){
+        properties = prop;
+        instance = null;
     }
 }

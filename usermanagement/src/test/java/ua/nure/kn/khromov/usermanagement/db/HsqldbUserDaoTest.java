@@ -1,15 +1,11 @@
-package test.java.ua.nure.kn.khromov.db;
+package ua.nure.kn.khromov.usermanagement.db;
 
 import org.dbunit.DatabaseTestCase;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.xml.XmlDataSet;
-import main.java.ua.nure.kn.khromov.User;
-import main.java.ua.nure.kn.khromov.db.ConnectionFactory;
-import main.java.ua.nure.kn.khromov.db.ConnectionFactoryImpl;
-import main.java.ua.nure.kn.khromov.db.DatabaseException;
-import main.java.ua.nure.kn.khromov.db.HsqldbUserDao;
+import ua.nure.kn.khromov.usermanagement.User;
 
 import java.util.Calendar;
 import java.util.Collection;
@@ -48,8 +44,8 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
     public void testCreate() {
         try {
             User user = new User();
-            user.setFirstName("Dmitriy");
-            user.setLastName("Khromov");
+            user.setFirstName("Khromov");
+            user.setLastName("Dmitriy");
             user.setDateOfBirth(Calendar.getInstance().getTime());
 
             assertNull(user.getId());
@@ -71,7 +67,7 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
      * */
     public void testFindAll() {
         try {
-            Collection<?> userCollection = dao.findAll();
+            Collection userCollection = dao.findAll();
             assertNotNull("Collection is null", userCollection);
             assertEquals("Collection size", 2, userCollection.size());
         } catch (DatabaseException exception) {
@@ -132,7 +128,7 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
     public void testDelete() {
         try {
             User userToDelete = dao.find((long)1001);
-            Collection<?> userCollection = dao.findAll();
+            Collection userCollection = dao.findAll();
             assertEquals(2, userCollection.size());
 
             dao.delete(userToDelete);

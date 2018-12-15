@@ -1,4 +1,4 @@
-package main.java.ua.nure.kn.khromov.db;
+package ua.nure.kn.khromov.usermanagement.db;
 
 public class DatabaseException extends Exception {
 
