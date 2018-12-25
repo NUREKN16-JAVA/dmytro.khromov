@@ -9,8 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import static junit.framework.Assert.fail;
-
 public class BrowsePanel extends JPanel implements ActionListener {
     private MainFrame parent;
     private JPanel buttonPanel;
@@ -174,7 +172,7 @@ public class BrowsePanel extends JPanel implements ActionListener {
             try{
                 parent.showDeletePanel(parent.getDao().find(userId));
             }catch (DatabaseException e1){
-                fail(e1.getMessage());
+                e1.printStackTrace();
             }
         }
         if("details".equalsIgnoreCase(actionCommand)){
@@ -183,7 +181,7 @@ public class BrowsePanel extends JPanel implements ActionListener {
             try{
                 parent.showDetailsPanel(parent.getDao().find(userId));
             }catch (DatabaseException e1){
-                fail(e1.getMessage());
+                e1.printStackTrace();
             }
         }
         if("edit".equalsIgnoreCase(actionCommand)){
@@ -192,7 +190,7 @@ public class BrowsePanel extends JPanel implements ActionListener {
             try{
                 parent.showEditPanel(parent.getDao().find(userId));
             }catch (DatabaseException e1){
-                fail(e1.getMessage());
+                e1.printStackTrace();
             }
         }
     }

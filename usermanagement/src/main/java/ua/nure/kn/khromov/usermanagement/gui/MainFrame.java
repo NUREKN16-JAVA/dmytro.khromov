@@ -9,8 +9,6 @@ import ua.nure.kn.khromov.usermanagement.util.Messages;
 import javax.swing.*;
 import java.awt.*;
 
-import static junit.framework.Assert.fail;
-
 public class MainFrame extends JFrame {
     private JPanel contentPanel;
     private BrowsePanel browsePanel;
@@ -194,7 +192,7 @@ public class MainFrame extends JFrame {
         try {
             return dao.find(userId);
         } catch (DatabaseException e) {
-            fail(e.getMessage());
+            e.printStackTrace();
         }
         return null;
     }

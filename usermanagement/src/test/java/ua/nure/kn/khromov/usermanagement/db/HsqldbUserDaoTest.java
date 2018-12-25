@@ -44,8 +44,8 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
     public void testCreate() {
         try {
             User user = new User();
-            user.setFirstName("Khromov");
-            user.setLastName("Dmitriy");
+            user.setFirstName("Dmitriy");
+            user.setLastName("Krromov");
             user.setDateOfBirth(Calendar.getInstance().getTime());
 
             assertNull(user.getId());

@@ -3,8 +3,6 @@ package ua.nure.kn.khromov.usermanagement.db;
 import java.io.IOException;
 import java.util.Properties;
 
-import static junit.framework.Assert.fail;
-
 public abstract class DaoFactory {
     protected static Properties properties;
     private static final String DAO_FACTORY = "dao.factory";
@@ -21,7 +19,7 @@ public abstract class DaoFactory {
         try {
             properties.load(DaoFactory.class.getClassLoader().getResourceAsStream("settings.properties"));
         } catch (IOException e) {
-            fail(e.getMessage());
+            e.printStackTrace();
         }
     }
 

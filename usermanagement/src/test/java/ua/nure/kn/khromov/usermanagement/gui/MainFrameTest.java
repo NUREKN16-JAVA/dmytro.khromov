@@ -32,16 +32,16 @@ public class MainFrameTest extends JFCTestCase {
 
     public void setUp() throws Exception {
         super.setUp();
-        try {
+        try{
             Properties properties = new Properties();
             properties.setProperty("dao.factory", MockDaoFactory.class.getName());
             DaoFactory.init(properties);
-            mockUserDao = ((MockDaoFactory) DaoFactory.getInstance()).getMockUserDao();
+            mockUserDao = ((MockDaoFactory)DaoFactory.getInstance()).getMockUserDao();
             mockUserDao.expectAndReturn("findAll", new ArrayList());
 
             setHelper(new JFCTestHelper());
             mainFrame = new MainFrame();
-        } catch (Exception e) {
+        }catch (Exception e){
             fail(e.getMessage());
         }
         mainFrame.setVisible(true);
@@ -53,7 +53,7 @@ public class MainFrameTest extends JFCTestCase {
             mainFrame.setVisible(false);
             getHelper().cleanUp(this);
             super.tearDown();
-        } catch (Exception e) {
+        }catch (Exception e){
             fail(e.getMessage());
         }
     }
@@ -62,9 +62,9 @@ public class MainFrameTest extends JFCTestCase {
      * Finds component on frame.
      *
      * @param componentClass on frame.
-     * @param name           of component on frame.
+     * @param name of component on frame.
      * @return found component.
-     */
+     * */
     private Component find(Class componentClass, String name) {
         NamedComponentFinder finder = new NamedComponentFinder(componentClass, name);
         finder.setWait(0);
@@ -76,12 +76,12 @@ public class MainFrameTest extends JFCTestCase {
 
     /**
      * Tests browse controls.
-     * <p>
+     *
      * Expected results: 3 columns in userTable.
-     * "ID" column on the first place.
-     * "First Name" column on the second place.
-     * "Last Name" column on the third place.
-     */
+     *                   "ID" column on the first place.
+     *                   "First Name" column on the second place.
+     *                   "Last Name" column on the third place.
+     * */
     public void testBrowseControls() {
         find(JPanel.class, "browsePanel");
 
@@ -99,20 +99,20 @@ public class MainFrameTest extends JFCTestCase {
 
     /**
      * Tests add user view.
-     * <p>
+     *
      * Expected results: user with ID = 1, FIRST_NAME = "Dmitriy", LAST_NAME = "Khromov", DateOfBirth = now tobe created.
-     * method "findAll" called after adding to fill table.
-     * no rows in table before clicking "add" button.
-     * "addPanel" was found.
-     * "firstNameField" was found.
-     * "lastNameField" was found.
-     * "dateOfBirthField" was found.
-     * "okButton" was found.
-     * "cancelButton" was found.
-     * "browsePanel" was found after clicking "Add" button.
-     * "userTable" was found.
-     * 1 row in table after adding user.
-     */
+     *                   method "findAll" called after adding to fill table.
+     *                   no rows in table before clicking "add" button.
+     *                   "addPanel" was found.
+     *                   "firstNameField" was found.
+     *                   "lastNameField" was found.
+     *                   "dateOfBirthField" was found.
+     *                   "okButton" was found.
+     *                   "cancelButton" was found.
+     *                   "browsePanel" was found after clicking "Add" button.
+     *                   "userTable" was found.
+     *                   1 row in table after adding user.
+     * */
     public void testAddUser() {
         User user = new User(FIRST_NAME, LAST_NAME, NOW);
         User expectedUser = new User((long) 1, FIRST_NAME, LAST_NAME, NOW);

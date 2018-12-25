@@ -1,7 +1,5 @@
 package ua.nure.kn.khromov.usermanagement.db;
 
-import static junit.framework.Assert.fail;
-
 public class DaoFactoryImpl extends DaoFactory {
     @Override
     public UserDao getUserDao() {
@@ -12,11 +10,11 @@ public class DaoFactoryImpl extends DaoFactory {
             result = (UserDao) userDaoClass.newInstance();
             result.setConnectionFactory(getConnectionFactory());
         } catch (ClassNotFoundException e) {
-            fail(e.getMessage());
+            e.printStackTrace();
         } catch (IllegalAccessException e) {
-            fail(e.getMessage());
+            e.printStackTrace();
         } catch (InstantiationException e) {
-            fail(e.getMessage());
+            e.printStackTrace();
         }
 
         return result;

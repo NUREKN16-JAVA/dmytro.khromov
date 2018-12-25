@@ -63,7 +63,7 @@ public class User implements Serializable {
     /**
      * Returns User's full name.
      * Format: "lastName, firstName"
-     * For example: "khromov, Dmitriy"
+     * For example: "Khromov, Dmitriy"
      *
      * @return String concatenation of last and first names.
      */

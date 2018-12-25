@@ -1,6 +1,6 @@
 package ua.nure.kn.khromov.usermanagement.db;
 
-import ua.nure.kn.dziuba.usermanagement.User;
+import ua.nure.kn.khromov.usermanagement.User;
 
 import java.sql.*;
 import java.util.Collection;
