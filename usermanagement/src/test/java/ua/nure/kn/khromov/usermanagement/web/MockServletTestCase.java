@@ -1,10 +1,10 @@
-package ua.nure.kn.khromov.usermanagement.web;
+package ua.nure.kn.dziuba.usermanagement.web;
 
 import com.mockobjects.dynamic.Mock;
 import com.mockrunner.servlet.BasicServletTestCaseAdapter;
-import ua.nure.kn.khromov.usermanagement.User;
-import ua.nure.kn.khromov.usermanagement.db.DaoFactory;
-import ua.nure.kn.khromov.usermanagement.db.MockDaoFactory;
+import ua.nure.kn.dziuba.usermanagement.User;
+import ua.nure.kn.dziuba.usermanagement.db.DaoFactory;
+import ua.nure.kn.dziuba.usermanagement.db.MockDaoFactory;
 
 import java.util.Date;
 import java.util.Properties;

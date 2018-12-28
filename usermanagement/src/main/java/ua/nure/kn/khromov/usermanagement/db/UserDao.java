@@ -42,6 +42,8 @@ public interface UserDao {
      * */
     User find(Long id) throws DatabaseException;
 
+    Collection find(String firstName, String lastName) throws DatabaseException;
+
     /**
      * Finds all users in database.
      *

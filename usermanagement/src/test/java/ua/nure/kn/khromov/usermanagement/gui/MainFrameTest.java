@@ -100,7 +100,7 @@ public class MainFrameTest extends JFCTestCase {
     /**
      * Tests add user view.
      *
-     * Expected results: user with ID = 1, FIRST_NAME = "Dmitriy", LAST_NAME = "Khromov", DateOfBirth = now tobe created.
+     * Expected results: user with ID = 1, FIRST_NAME = "Вьшекшн", LAST_NAME = "Лркщьщм", DateOfBirth = now tobe created.
      *                   method "findAll" called after adding to fill table.
      *                   no rows in table before clicking "add" button.
      *                   "addPanel" was found.

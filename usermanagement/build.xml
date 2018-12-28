@@ -20,6 +20,7 @@
     <target name="clean">
         <delete dir="${build-dir}" failonerror="no"/>
     </target>
+    <property name="classes-dir" value="${build-dir}/classes"/>
     <target name="init" depends="clean">
         <mkdir dir="${build-dir}"/>
         <mkdir dir="${classes-dir}"/>
@@ -27,6 +28,8 @@
     <target name="compile" depends="init">
         <javac srcdir="${main-java-dir}" destdir="${build-dir}" includeantruntime="false"/>
     </target>
+    <property name="main-java-dir" value="${basedir}/src/main/java"/>
+    <property name="test-java-dir" value="${basedir}/src/test/java"/>
     <target name="test-compile" depends="compile">
         <javac srcdir="${test-java-dir}" destdir="${build-dir}" includeantruntime="true"/>
     </target>

@@ -1,7 +1,7 @@
-package ua.nure.kn.khromov.usermanagement.web;
+package ua.nure.kn.dziuba.usermanagement.web;
 
-import ua.nure.kn.khromov.usermanagement.User;
-import ua.nure.kn.khromov.usermanagement.db.DatabaseException;
+import ua.nure.kn.dziuba.usermanagement.User;
+import ua.nure.kn.dziuba.usermanagement.db.DatabaseException;
 
 import java.util.Collection;
 import java.util.Collections;

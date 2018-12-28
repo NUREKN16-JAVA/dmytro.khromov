@@ -1,6 +1,6 @@
-package ua.nure.kn.khromov.usermanagement.web;
+package ua.nure.kn.dziuba.usermanagement.web;
 
-import ua.nure.kn.khromov.usermanagement.User;
+import ua.nure.kn.dziuba.usermanagement.User;
 
 import java.text.DateFormat;
 import java.util.Date;

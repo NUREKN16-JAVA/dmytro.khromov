@@ -26,6 +26,10 @@ public class UserTableModel extends AbstractTableModel {
     /**
      * {@inheritDoc]}
      * */
+   public UserTableModel(User user){
+        this.user = user;
+    }
+
     @Override
     public int getRowCount() {
         return users.size();
@@ -74,5 +78,13 @@ public class UserTableModel extends AbstractTableModel {
      * */
     public String getColumnName(int columnIndex){
         return COLUMN_NAMES[columnIndex];
+    }
+
+    public void addUsers(Collection users) {
+        this.users.addAll(users);
+    }
+
+    public void clearUsers() {
+        this.users = new ArrayList();
     }
 }
